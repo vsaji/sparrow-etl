@@ -127,7 +127,7 @@ public final class ApplicationInitializer {
 				this.config = this.loadConfiguration(configFile);
 				this.context = new SparrowApplicationContextImpl(this.config);
 
-				this.context.setAttribute(ContextVariables.SPEAR_PID, PIDUtil.getPID());
+				this.context.setAttribute(ContextVariables.SPARROW_PID, PIDUtil.getPID());
 				this.printUsefulInfo();
 				
 				TransactionEnabledConnectionProvider.setContext(context);
@@ -165,13 +165,13 @@ public final class ApplicationInitializer {
  */
 	private void printUsefulInfo() {
 		logger.info("Application [" + context.getAppName()
-				+ "] initializing on SPEAR Build ["
-				+ SparrowUtil.getImplConfig("spear").get("build.version")
+				+ "] initializing on SPARROW Build ["
+				+ SparrowUtil.getImplConfig("sparrow").get("build.version")
 				+ "]:PID[" + PIDUtil.getPID() + "]");
 		logger.info("Build ["
-				+ SparrowUtil.getImplConfig("spear").get("build.version")
+				+ SparrowUtil.getImplConfig("sparrow").get("build.version")
 				+ "] contains following fixes ["
-				+ SparrowUtil.getImplConfig("spear").get("item.numbers") + "]");
+				+ SparrowUtil.getImplConfig("sparrow").get("item.numbers") + "]");
 	}
 
 	/**
@@ -190,7 +190,7 @@ public final class ApplicationInitializer {
 	private void initializeWatcher() {
 
 		String wEnable = ContextParam
-				.getContextParamValue("spear.watcher.enable");
+				.getContextParamValue("sparrow.watcher.enable");
 		boolean watcherEnable = (wEnable == null) ? false : Boolean.valueOf(
 				wEnable).booleanValue();
 
@@ -241,14 +241,14 @@ public final class ApplicationInitializer {
 
 			if (configFile == null || configFile.trim().equals("")) {
 				logger
-						.warn("spear.config property is not set. Searching for spear-app-config.xml in the classpath");
-				is = SparrowUtil.getFileAsStream("spear-app-config.xml");
+						.warn("sparrow.config property is not set. Searching for sparrow-app-config.xml in the classpath");
+				is = SparrowUtil.getFileAsStream("sparrow-app-config.xml");
 				if (is == null) {
 					throw new ConfigurationReadingException(
 							"Configuration file could not be located");
 				}
 			} else {
-				logger.info("spear.config=" + configFile);
+				logger.info("sparrow.config=" + configFile);
 				is = SparrowUtil.getFileAsStream(configFile);
 			}
 

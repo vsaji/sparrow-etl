@@ -36,7 +36,7 @@ public class CycleDependencyInitializer {
       getCurrentInstance(
       CycleDependencyInitializer.class);
 
-  private ArrayList SPEAR_SPECIFIC_CLASSES = new ArrayList() {
+  private ArrayList SPARROW_SPECIFIC_CLASSES = new ArrayList() {
     {
       Map impls = SparrowUtil.getImplConfig("cycledependency");
       for (Iterator it = impls.values().iterator(); it.hasNext(); ) {
@@ -69,7 +69,7 @@ public class CycleDependencyInitializer {
         AsserterConfig item = (AsserterConfig) iter.next();
         currentClass = item.getClassName();
 
-        if (SPEAR_SPECIFIC_CLASSES.contains(currentClass)) {
+        if (SPARROW_SPECIFIC_CLASSES.contains(currentClass)) {
           continue;
         }
 
@@ -84,8 +84,8 @@ public class CycleDependencyInitializer {
                      "] has been registered");
 
       }
-      SPEAR_SPECIFIC_CLASSES.clear();
-      SPEAR_SPECIFIC_CLASSES = null;
+      SPARROW_SPECIFIC_CLASSES.clear();
+      SPARROW_SPECIFIC_CLASSES = null;
 
     }
     catch (ObjectCreationException ex) {

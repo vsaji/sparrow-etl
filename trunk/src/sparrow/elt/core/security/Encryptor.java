@@ -22,7 +22,7 @@ public class Encryptor {
   public static void main(String[] args){
     if(args.length==0){
       System.out.println("[ERROR]Argument Expected.");
-      System.out.println("Usage Pattern:- C:\\>java -cp spear.<VERSION>.jar sparrow.elt.core.security.Encryptor  <String to encrypt> <Process Id>");
+      System.out.println("Usage Pattern:- C:\\>java -cp sparrow.<VERSION>.jar sparrow.elt.core.security.Encryptor  <String to encrypt> <Process Id>");
       System.exit(-1);
     }
 

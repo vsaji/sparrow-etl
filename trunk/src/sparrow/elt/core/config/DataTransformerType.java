@@ -20,7 +20,7 @@ public class DataTransformerType {
 
   public static final String OTHER = "OTHER";
   public static final String DEFAULT_TYPE = "DEFAULT";
-  public static final String DEFAULT_NAME = "SPEARTRANS";
+  public static final String DEFAULT_NAME = "SPARROWTRANS";
   public static final int DEFAULT_POOL_SIZE = 25;
   public static final int DEFAULT_THREAD_COUNT = 5;
 

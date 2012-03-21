@@ -97,7 +97,7 @@ public class SparrowCoreEngine
       cycleCount = SparrowUtil.performTernary(context.getConfiguration().
                                             getModule(),
                                             ConfigKeyConstants.
-                                            PARAM_SPEAR_CYCLE_COUNT, 0);
+                                            PARAM_SPARROW_CYCLE_COUNT, 0);
       //----------------------------------------------------------------
       cycleMonitor.addObserver(this);
       appMonitor.addObserver(this);
@@ -109,7 +109,7 @@ public class SparrowCoreEngine
       loadBalancer.initializeKeyAssigner();
       //----------------------------------------------------------------
       ignoreExtractorException = SparrowUtil.performTernary(context.getConfiguration().
-              getModule(),ConfigKeyConstants.PARAM_SPEAR_IGNORE_EE, false);
+              getModule(),ConfigKeyConstants.PARAM_SPARROW_IGNORE_EE, false);
       //----------------------------------------------------------------
       extractor = DataExtractorFactory.getLoader(this.context);
       //----------------------------------------------------------------
@@ -166,7 +166,7 @@ public class SparrowCoreEngine
       if (recCount == 0) {
         eopMonitor.notifyEOP(Constants.EP_NO_RECORD);
         if (cycleCount == -1) {
-          logger.info("[SPEAR SHUTTING DOWN]");
+          logger.info("[SPARROW SHUTTING DOWN]");
           shutdownInitByCore = true;
           killApp(Constants.NORMAL_EXIT);
         }
@@ -180,7 +180,7 @@ public class SparrowCoreEngine
 
       long configInterval = SparrowUtil.performTernaryForLong(this.context.
           getConfiguration().getModule(),
-          ConfigKeyConstants.PARAM_SPEAR_CYCLE_INTERVAL, 5000);
+          ConfigKeyConstants.PARAM_SPARROW_CYCLE_INTERVAL, 5000);
 
       long interval = configInterval;
 

@@ -43,7 +43,7 @@ public class VelocityTemplateProcessor
    */
   public void parse(String expression) throws ParserException {
     try {
-      nodeTree = ri.parse(expression, "spear");
+      nodeTree = ri.parse(expression, "sparrow");
     }
     catch (ParseException ex) {
       throw new ParserException(
@@ -63,7 +63,7 @@ public class VelocityTemplateProcessor
     VelocityContext ctxt = new SpearVelocityContext(values);
     StringWriter sw = new StringWriter();
     try {
-      ri.render(ctxt, sw, "spear", nodeTree);
+      ri.render(ctxt, sw, "sparrow", nodeTree);
     }
     catch (IOException ex) {
       throw new EvaluatorException(

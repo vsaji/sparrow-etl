@@ -268,7 +268,7 @@ public final class SparrowApplicationContextImpl
    * @param value Object
    */
   public void setAttribute(String name, Object value) {
-    if(ContextVariables.SPEAR_CONTEXT_VARS.contains(name) && value==null){
+    if(ContextVariables.SPARROW_CONTEXT_VARS.contains(name) && value==null){
       throw new SparrowRuntimeException("Value [null] cannot be set to reserved context varaibles ["+name+"]");
     }
     contextAttributes.put(name, value);

@@ -101,7 +101,7 @@ public class TemplateBasedWriter extends AbstractDataWriter {
 		Reader r = null;
 		try {
 			r = new FileReader(tmpltFile);
-			nodeTree = ri.parse(r, "spearexcelwriter");
+			nodeTree = ri.parse(r, "sparrowexcelwriter");
 
 			if (logger.isDebugEnabled()) {
 				logger.debug("Velocity Template [" + tmpltFile
@@ -178,7 +178,7 @@ public class TemplateBasedWriter extends AbstractDataWriter {
 				initializeTemplate(tmpltFile);
 
 				wr = new BufferedWriter(new FileWriter(outFileName));
-				ri.render(vars, wr, "spearexcelwriter", nodeTree);
+				ri.render(vars, wr, "sparrowexcelwriter", nodeTree);
 				wr.flush();
 				logger.info("New Output file [" + outFileName
 						+ "] has been created from template [" + tmpltFile
@@ -194,7 +194,7 @@ public class TemplateBasedWriter extends AbstractDataWriter {
 
 				wr = new BufferedWriter(new FileWriter(outFileName));
 				vars.put("_records", outputRecs);
-				ri.render(vars, wr, "spearcsvwriter", nodeTree);
+				ri.render(vars, wr, "sparrowcsvwriter", nodeTree);
 				wr.flush();
 				logger.info("New Output file [" + outFileName
 						+ "] has been created from template [" + tmpltFile
@@ -244,7 +244,7 @@ public class TemplateBasedWriter extends AbstractDataWriter {
 					wr = new BufferedWriter(new FileWriter(
 							postAppendfileName[i]));
 					vars.put("_records", colls[i]);
-					ri.render(vars, wr, "spearexcelwriter", nodeTree);
+					ri.render(vars, wr, "sparrowexcelwriter", nodeTree);
 					wr.flush();
 					logger.info("New Output file [" + postAppendfileName[i]
 							+ "] has been created from template [" + tmpltFile
@@ -264,7 +264,7 @@ public class TemplateBasedWriter extends AbstractDataWriter {
 
 				wr = new BufferedWriter(new FileWriter(outFileName));
 				vars.put("_records", outputRecs);
-				ri.render(vars, wr, "spearcsvwriter", nodeTree);
+				ri.render(vars, wr, "sparrowcsvwriter", nodeTree);
 				wr.flush();
 				logger.info("New Output file [" + outFileName
 						+ "] has been created from template [" + tmpltFile

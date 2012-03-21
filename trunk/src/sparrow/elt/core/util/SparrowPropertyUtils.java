@@ -30,7 +30,7 @@ public class SparrowPropertyUtils {
     props = new Properties();
     try {
       props.load(SparrowPropertyUtils.class.getClassLoader().getResourceAsStream(
-          Constants.SPEAR_PROPERTIES_FILE));
+          Constants.SPARROW_PROPERTIES_FILE));
     }
     catch (IOException ex) {
     }

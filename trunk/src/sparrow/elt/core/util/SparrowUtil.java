@@ -1047,11 +1047,11 @@ public final class SparrowUtil {
 
 		if (!implLoaded) {
 			instanceName = System.getProperties().getProperty(
-					Constants.SPEAR_INSTANCE_NAME);
+					Constants.SPARROW_INSTANCE_NAME);
 			instanceName = (instanceName == null) ? "" : "_" + instanceName;
 
 			IMPL_RESOLVER = covertToCatalogMap(
-					"com/cs/sg/spear/core/config/impl.properties",
+					"com/cs/sg/sparrow/core/config/impl.properties",
 					"user_impl.properties");
 			makeUnmodifiable(IMPL_RESOLVER);
 			implLoaded = true;

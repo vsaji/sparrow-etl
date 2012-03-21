@@ -80,7 +80,7 @@ public class FileBasedSemaphoreService extends AbstractSemaphoreService {
 					+ "]");
 		} else {
 			String[] prcIdAndDate = processID.split("[~]");
-			String exceptionString = "SPEAR Process ["
+			String exceptionString = "SPARROW Process ["
 					+ config.getContext().getProcessId()
 					+ "] is currently running and locked by Process Id ["
 					+ prcIdAndDate[0] + "], Start Date/Time ["

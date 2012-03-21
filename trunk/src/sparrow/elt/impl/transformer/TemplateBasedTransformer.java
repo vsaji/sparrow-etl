@@ -53,7 +53,7 @@ public class TemplateBasedTransformer
                             config.getInitParameter());
 
     String templateProcessor = SparrowUtil.performTernary(config.getInitParameter(),
-        "template.processor", "spear");
+        "template.processor", "sparrow");
     template = SparrowTemplateFactory.createTemplateProcessor(templateProcessor);
 
     /**

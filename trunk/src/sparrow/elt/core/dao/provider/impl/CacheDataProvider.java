@@ -539,7 +539,7 @@ public class CacheDataProvider
          }
          catch (SQLException ex) {
       throw new InitializationException(
-     "SQLException occured while initializing SPEAR_CACHE connection", ex);
+     "SQLException occured while initializing SPARROW_CACHE connection", ex);
          }
      **/
   }
@@ -679,7 +679,7 @@ public class CacheDataProvider
     private BasicDataSource ds;
     private boolean closed = false;
     private static String poolSize = ContextParam.getContextParamValue(
-        "spear.cache.pool.size");
+        "sparrow.cache.pool.size");
 
     private static final int H2_POOL_SIZE = (poolSize == null ||
                                              Integer.parseInt(poolSize) < 1) ?
@@ -699,10 +699,10 @@ public class CacheDataProvider
     private void init() {
       BasicDataSource bds = new BasicDataSource();
       bds.setDriverClassName("org.h2.Driver");
-      bds.setUrl("jdbc:h2:mem:spear;DB_CLOSE_ON_EXIT=FALSE");
+      bds.setUrl("jdbc:h2:mem:sparrow;DB_CLOSE_ON_EXIT=FALSE");
 //      bds.setUrl("jdbc:h2:tcp://localhost/~/test");
-//      bds.setUsername("spear");
-//      bds.setPassword("spear");
+//      bds.setUsername("sparrow");
+//      bds.setPassword("sparrow");
       bds.setMaxActive(H2_POOL_SIZE);
       bds.setMaxWait(3000);
       bds.setDefaultAutoCommit(true);
