@@ -35,7 +35,7 @@ public class CycleCountListener
   public CycleCountListener(ConfigParam param,
                             SparrowApplicationContext context) {
     this.CYCLE_MAX_RUN_COUNT = SparrowUtil.performTernary(context.
-        getConfiguration().getModule(), Constants.SPEAR_CYCLE_COUNT, 0);
+        getConfiguration().getModule(), Constants.SPARROW_CYCLE_COUNT, 0);
   }
 
   /**
@@ -82,7 +82,7 @@ public class CycleCountListener
   public boolean isProcessTerminationRequired() {
     if (processTerminate) {
       logger.warn("PROCESS SHUTDOWN initiated. Total no. of cycle completed [" +
-                  cycleCount + "][spear.cycle.count=" + CYCLE_MAX_RUN_COUNT +
+                  cycleCount + "][sparrow.cycle.count=" + CYCLE_MAX_RUN_COUNT +
                   "]");
     }
 
@@ -96,7 +96,7 @@ public class CycleCountListener
    */
   public String getStatusDescription() {
     return (CYCLE_MAX_RUN_COUNT == 0) ?
-        "[" + Constants.SPEAR_CYCLE_COUNT + "] is NOT set. Infinite RUN" :
+        "[" + Constants.SPARROW_CYCLE_COUNT + "] is NOT set. Infinite RUN" :
         "Cycle Count [" + cycleCount + "]";
   }
 

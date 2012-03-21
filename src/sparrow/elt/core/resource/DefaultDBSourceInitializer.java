@@ -30,7 +30,7 @@ import com.csfb.sg.Utils.Database.SecureConnFactory;
  *
  * <p>Title: Class DefaultDataSourceInitializer </p>
  * <p>Description: Class DefaultDataSourceInitializer is a Generic Datasource initializer
- * to initialize datasource which are configured in the spear-app-config.xml file.</p>
+ * to initialize datasource which are configured in the sparrow-app-config.xml file.</p>
  *
  * <p> It uses Apache BasicDataSource implementation to achive the connection
  * pool and DataSource creation machanism</p>

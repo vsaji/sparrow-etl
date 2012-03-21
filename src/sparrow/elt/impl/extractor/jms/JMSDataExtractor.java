@@ -67,7 +67,7 @@ public class JMSDataExtractor
   private static SparrowLogger logger = SparrowrLoggerFactory
       .getCurrentInstance(JMSDataExtractor.class);
   private static final String DEFAULT_COL_DEF =
-      "com/cs/sg/spear/impl/extractor/jms/jms-coldef.xml";
+      "com/cs/sg/sparrow/impl/extractor/jms/jms-coldef.xml";
   private static final String ON_ERROR_DEFAULT_VALUE = "direct.to.dq";
   private static final String ON_ERROR_PRSRV_IN_STORE = "preserve.in.store";
 

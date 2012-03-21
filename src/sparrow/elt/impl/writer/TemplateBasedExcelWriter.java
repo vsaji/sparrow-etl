@@ -69,7 +69,7 @@ public class TemplateBasedExcelWriter extends AbstractDataWriter {
 					.getParameterValue(ConfigKeyConstants.PARAM_TMPLT_FILE));
 
 			r = new FileReader(tmpltFile);
-			nodeTree = ri.parse(r, "spearexcelwriter");
+			nodeTree = ri.parse(r, "sparrowexcelwriter");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -160,7 +160,7 @@ public class TemplateBasedExcelWriter extends AbstractDataWriter {
 			for (int i = 0; i < numOfFiles; i++) {
 				wr = new BufferedWriter(new FileWriter(postAppendfileName[i]));
 				vars.put("_records", colls[i]);
-				ri.render(vars, wr, "spearexcelwriter", nodeTree);
+				ri.render(vars, wr, "sparrowexcelwriter", nodeTree);
 				wr.flush();
 			}
 			

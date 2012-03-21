@@ -5,11 +5,11 @@ public interface ConfigKeyConstants {
 	/**
 	 *
 	 */
-	public static final String PARAM_SPEAR_CYCLE_COUNT = "spear.cycle.count";
+	public static final String PARAM_SPARROW_CYCLE_COUNT = "sparrow.cycle.count";
 
-	public static final String PARAM_SPEAR_IGNORE_EE = "spear.ignore.extractor.exception";
+	public static final String PARAM_SPARROW_IGNORE_EE = "sparrow.ignore.extractor.exception";
 	
-	public static final String PARAM_SPEAR_CYCLE_INTERVAL = "spear.cycle.interval";
+	public static final String PARAM_SPARROW_CYCLE_INTERVAL = "sparrow.cycle.interval";
 
 	public static final String PARAM_DP_CACHE_TYPE = "cache.type";
 
@@ -49,7 +49,7 @@ public interface ConfigKeyConstants {
 
 	public static final String PARAM_SERVICE_INTERVAL = "service.interval";
 
-	public static final String PARAM_PROCESS_NAME = "spear.process.name";
+	public static final String PARAM_PROCESS_NAME = "sparrow.process.name";
 
 	public static final String PARAM_FILE_PATH = "file.path";
 
@@ -135,9 +135,9 @@ public interface ConfigKeyConstants {
 
 	public static final String PARAM_FILE_OUTPUT = "file.output";
 
-	public static final String PARAM_SEMAPHORE_CHECK = "spear.semaphore.check";
+	public static final String PARAM_SEMAPHORE_CHECK = "sparrow.semaphore.check";
 
-	public static final String PARAM_KEY_ASSIGNER = "spear.keyassigner";
+	public static final String PARAM_KEY_ASSIGNER = "sparrow.keyassigner";
 
 	public static final String PARAM_ALLORNONE = "all.or.none";
 

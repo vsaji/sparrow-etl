@@ -24,9 +24,9 @@ public interface ContextVariables {
   public static final String FAIL_PROCESS = "@FAIL_PROCESS";
   public static final String REJECT_REC_FILE = "@REJECT_REC_FILE";  
   public static final String CSV_ROW_REJECT_FILE = "@CSV_ROW_REJECT_FILE";  
-  public static final String SPEAR_PID = "@SPEAR_PID";
+  public static final String SPARROW_PID = "@SPARROW_PID";
 
-  public static final List SPEAR_CONTEXT_VARS = new ArrayList(){
+  public static final List SPARROW_CONTEXT_VARS = new ArrayList(){
     {
       add(FETCH_COUNT);
       add(REJECT_COUNT);

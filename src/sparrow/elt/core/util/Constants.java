@@ -20,21 +20,21 @@ public interface Constants {
 
   public static final String OUTPUT="$VAR";
 
-  public static final String CONFIG_FILE_PROPERTY_NAME = "spear.config";
-  public static final String SPEAR_RUN_MDOE = "spear.run.mode";
-  public static final String SPEAR_SHUTDOWN_FORMAT = "spear.shutdown.format";
-  public static final String SPEAR_SHUTDOWN = "spear.shutdown";
-  public static final String SPEAR_PROCESS_NAME = "spear.process.name";
-  public static final String SPEAR_CYCLE_SIZE = "spear.cycle.size";
-  public static final String SPEAR_CYCLE_COUNT = "spear.cycle.count";
-  public static final String SPEAR_PROPERTIES_FILE = "spear.properties";
-  public static final String SPEAR_INSTANCE_NAME = "spear.instance.name";
+  public static final String CONFIG_FILE_PROPERTY_NAME = "sparrow.config";
+  public static final String SPARROW_RUN_MDOE = "sparrow.run.mode";
+  public static final String SPARROW_SHUTDOWN_FORMAT = "sparrow.shutdown.format";
+  public static final String SPARROW_SHUTDOWN = "sparrow.shutdown";
+  public static final String SPARROW_PROCESS_NAME = "sparrow.process.name";
+  public static final String SPARROW_CYCLE_SIZE = "sparrow.cycle.size";
+  public static final String SPARROW_CYCLE_COUNT = "sparrow.cycle.count";
+  public static final String SPARROW_PROPERTIES_FILE = "sparrow.properties";
+  public static final String SPARROW_INSTANCE_NAME = "sparrow.instance.name";
 
   public static final String JMS_TYPE_TOPIC = "topic";
   public static final String JMS_TYPE_QUEUE = "queue";
 
-  public static final String SPEAR_SHUTDOWN_FORMAT_EEE_HHMM = "EEE:HH:mm";
-  public static final String SPEAR_SHUTDOWN_FORMAT_HHMM = "HH:mm";
+  public static final String SPARROW_SHUTDOWN_FORMAT_EEE_HHMM = "EEE:HH:mm";
+  public static final String SPARROW_SHUTDOWN_FORMAT_HHMM = "HH:mm";
 
   public static final String USER_OBJECT_IMPL = "user.obj.impl";
   public static final String USER_OBJ_POOL_SIZE = "user.obj.pool.size";

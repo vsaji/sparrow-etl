@@ -50,13 +50,13 @@ public class ShutdownTimeListener
                               SparrowApplicationContext context) {
 
     shutdownEntryConfigured = context.getConfiguration().getModule().
-        isParameterExist(Constants.SPEAR_SHUTDOWN);
+        isParameterExist(Constants.SPARROW_SHUTDOWN);
     this.ignoreCycleStrategy = SparrowUtil
 	.performTernary(context.getConfiguration().getModule(),
 			"ignore.cycle.strategy", false);
     if (shutdownEntryConfigured) {
       procShutValue = context.getConfiguration().getModule().getParameterValue(
-          Constants.SPEAR_SHUTDOWN);
+          Constants.SPARROW_SHUTDOWN);
       procShutFrmt = procShutValue.split("[:]").length;
 
       if (procShutFrmt > 3) {
@@ -185,7 +185,7 @@ public class ShutdownTimeListener
     int cfgMM = SparrowUtil.getMinute(procShutValue);
 
     String currHHMM = SparrowUtil.formatDate(getDate(),
-                                           Constants.SPEAR_SHUTDOWN_FORMAT_HHMM);
+                                           Constants.SPARROW_SHUTDOWN_FORMAT_HHMM);
     int curHH = SparrowUtil.getHour(currHHMM, 0);
     int curMM = SparrowUtil.getMinute(currHHMM);
 
@@ -290,7 +290,7 @@ public class ShutdownTimeListener
    */
   public String getStatusDescription() {
     return "SCHEDULED SHUTDOWN initiated. [" +
-        SparrowUtil.formatDate(getDate(), "dd-EEE-yyyy HH:mm:ss") + "].[spear.shutdown="+procShutValue+"]";
+        SparrowUtil.formatDate(getDate(), "dd-EEE-yyyy HH:mm:ss") + "].[sparrow.shutdown="+procShutValue+"]";
   }
 
   /**

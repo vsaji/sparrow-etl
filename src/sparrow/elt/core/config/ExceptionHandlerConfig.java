@@ -10,9 +10,9 @@ import sparrow.elt.core.util.SparrowUtil;
 import sparrow.elt.jaxb.EXCEPTIONHANDLERType;
 import sparrow.elt.jaxb.HANDLERType;
 import sparrow.elt.jaxb.HANDLEType;
-import sparrow.elt.jaxb.impl.ERRORTypeImpl;
-import sparrow.elt.jaxb.impl.HANDLERTypeImpl;
-import sparrow.elt.jaxb.impl.HANDLETypeImpl;
+import sparrow.elt.jaxb.ERRORType;
+import sparrow.elt.jaxb.HANDLERType;
+import sparrow.elt.jaxb.HANDLEType;
 
 
 public interface ExceptionHandlerConfig {
@@ -73,7 +73,7 @@ final class ExceptionHandlerConfigImpl implements ExceptionHandlerConfig {
 		for (int i = 1; hndlrs.containsKey(i + ".name"); i++) {
 			String name = (String) hndlrs.get(i + ".name");
 			String klass = (String) hndlrs.get(i + ".class");
-			HANDLERTypeImpl hndlrTypeImpl = new HANDLERTypeImpl();
+			HANDLERType hndlrTypeImpl = new HANDLERType();
 			hndlrTypeImpl.setCLASS(klass);
 			hndlrTypeImpl.setNAME(name);
 			dHandlers.add(hndlrTypeImpl);
@@ -87,7 +87,7 @@ final class ExceptionHandlerConfigImpl implements ExceptionHandlerConfig {
 			String exceptionClass = (String) hndls.get(i + ".exception.class");
 			String handler = (String) hndls.get(i + ".hander.name");
 
-			HANDLETypeImpl htimpl = new HANDLETypeImpl();
+			HANDLEType htimpl = new HANDLEType();
 			htimpl.setEXCEPTION(exceptionClass);
 			htimpl.setHANDLER(handler);
 			for (int j = 1; hndls.containsKey(i + ".error." + j + ".code"); j++) {
@@ -95,7 +95,7 @@ final class ExceptionHandlerConfigImpl implements ExceptionHandlerConfig {
 				String desc = (String) hndls.get(i + ".error." + j + ".desc");
 				String type = (String) hndls.get(i + ".error." + j + ".type");
 				
-				ERRORTypeImpl error = new ERRORTypeImpl();
+				ERRORType error = new ERRORType();
 				error.setCODE(code);
 				error.setVALUE(desc);
 				error.setTYPE(type);

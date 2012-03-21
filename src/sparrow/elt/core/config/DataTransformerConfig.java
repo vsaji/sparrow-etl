@@ -6,7 +6,6 @@ package sparrow.elt.core.config;
 
 import sparrow.elt.core.exception.SparrowRuntimeException;
 import sparrow.elt.jaxb.DATATRANSFORMERType;
-import sparrow.elt.jaxb.impl.DATATRANSFORMERTypeImpl;
 
 /**
  *
@@ -90,7 +89,7 @@ class DataTransformerConfigImpl
    */
   private static DATATRANSFORMERType preCheck(DATATRANSFORMERType dataTransformer){
     if(dataTransformer==null){
-      dataTransformer = new DATATRANSFORMERTypeImpl();
+      dataTransformer = new DATATRANSFORMERType();
       dataTransformer.setNAME(DataTransformerType.DEFAULT_NAME);
       dataTransformer.setTYPE(DataTransformerType.DEFAULT_TYPE);
       dataTransformer.setPOOLSIZE(DataTransformerType.DEFAULT_POOL_SIZE);

@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -14,7 +15,7 @@ import javax.xml.bind.Unmarshaller;
 import sparrow.elt.core.exception.ConfigurationReadingException;
 import sparrow.elt.core.log.SparrowLogger;
 import sparrow.elt.core.log.SparrowrLoggerFactory;
-import sparrow.elt.jaxb.SPEARCONFIG;
+import sparrow.elt.jaxb.SPARROWCONFIG;;
 
 
 /**
@@ -81,7 +82,7 @@ public final class XMLConfiguration
 
     logger.debug("Reading Configuration");
 
-    SPEARCONFIG spear = null;
+    SPARROWCONFIG sparrowConfig = null;
 
     try {
 
@@ -92,7 +93,7 @@ public final class XMLConfiguration
 
       JAXBContext jc = JAXBContext.newInstance(PACKAGE_NAME);
       Unmarshaller u = jc.createUnmarshaller();
-      spear = (SPEARCONFIG) u.unmarshal(this.is);
+      sparrowConfig = (SPARROWCONFIG) u.unmarshal(this.is);
     }
     catch (JAXBException ex) {
       throw new ConfigurationReadingException(ex);
@@ -109,23 +110,23 @@ public final class XMLConfiguration
     }
 
     /**/
-    setModule(new ModuleConfigImpl(spear.getMODULE()));
-    setResources(new ResourcesConfigImpl(spear.getRESOURCES()));
-    setServices(new ServicesConfigImpl(spear.getSERVICES()));
-    setDataProviders( (new DataProvidersConfigImpl(spear.getDATAPROVIDERS())));
-    setDataExtractor(new DataExtractorConfigImpl(spear.getDATAEXTRACTOR()));
-    setDataWriters(new DataWritersConfigImpl(spear.getDATAWRITERS()));
-    setDataLookUp(new DataLookUpConfigImpl(spear.getDATALOOKUP()));
-    setDataTransformer(new DataTransformerConfigImpl(spear.getDATATRANSFORMER()));
-    setExceptionConfig(new ExceptionHandlerConfigImpl(spear.getEXCEPTIONHANDLER()));
-    setNotifiers(new NotifiersConfigImpl(spear.getNOTIFIERS()));
+    setModule(new ModuleConfigImpl(sparrowConfig.getMODULE()));
+    setResources(new ResourcesConfigImpl(sparrowConfig.getRESOURCES()));
+    setServices(new ServicesConfigImpl(sparrowConfig.getSERVICES()));
+    setDataProviders( (new DataProvidersConfigImpl(sparrowConfig.getDATAPROVIDERS())));
+    setDataExtractor(new DataExtractorConfigImpl(sparrowConfig.getDATAEXTRACTOR()));
+    setDataWriters(new DataWritersConfigImpl(sparrowConfig.getDATAWRITERS()));
+    setDataLookUp(new DataLookUpConfigImpl(sparrowConfig.getDATALOOKUP()));
+    setDataTransformer(new DataTransformerConfigImpl(sparrowConfig.getDATATRANSFORMER()));
+    setExceptionConfig(new ExceptionHandlerConfigImpl(sparrowConfig.getEXCEPTIONHANDLER()));
+    setNotifiers(new NotifiersConfigImpl(sparrowConfig.getNOTIFIERS()));
 
     logger.debug("Configuration Initialized");
 
-    //ConfigValidator validator = new ConfigValidator(spear);
+    //ConfigValidator validator = new ConfigValidator(sparrow);
     //validator.validate();
 
-    spear = null;
+    sparrowConfig = null;
   }
 
 }

@@ -40,7 +40,7 @@ public class FunctionTest {
     aa.add("func_math(func_evaldouble(85.545+78.25855),R)");
     aa.add("func_evaldouble(func_convertdouble(\"78.25855\")+34)");
     aa.add("func_eval(func_convertnumber(\"78\")+34)");
-    aa.add("func_indexof(\"SPEAR\",\"E\")");
+    aa.add("func_indexof(\"SPARROW\",\"E\")");
     aa.add("func_math(func_evaldouble(85.545+func_convertdouble(${s})),A)");
     aa.add("func_concatenate(\"Today is | ${abc}\")");
     aa.add("func_isfileexist(\"c:/app/abc123.xml\")");    

@@ -44,7 +44,7 @@ public class Watcher
       watcherEnable = true;
 
       String wIntvl = ContextParam.getContextParamValue(
-          "spear.watcher.interval");
+          "sparrow.watcher.interval");
 
       interval = (wIntvl == null || Integer.parseInt(wIntvl) < 1000) ?
           1000 : Integer.parseInt(wIntvl);
