@@ -1,0 +1,62 @@
+<column-def>
+    <column-set name="driver">
+		<column name="Category"			type="string"   default-value=""	size=""  format="" />
+		<column name="RegionID"			type="string"   default-value=""	size=""  format="" />
+		<column name="TradeDate"		type="string"   default-value=""	size=""  format="" />
+		<column name="ProcessDate"		type="string"   default-value=""	size=""  format="" />
+		<column name="TradeID"			type="string"   default-value=""	size=""  format="" />
+		<column name="VersionID"		type="string"   default-value=""	size=""  format="" />
+		<column name="gsc_orig_id_c"		type="string"   default-value=""	size=""  format="" />
+		<column name="YrMnth"			type="string"   default-value=""	size=""  format="" />
+		<column name="CRegionID"		type="string"   default-value=""	size=""  format="" />
+		<column name="CustomerID"		type="string"   default-value=""	size=""  format="" />
+		<column name="IsInternalCustomer"	type="string"   default-value=""	size=""  format="" />
+		<column name="CustomerName"		type="string"   default-value=""	size=""  format="" />
+		<column name="ParentID"			type="string"   default-value=""	size=""  format="" />
+		<column name="ParentName"		type="string"   default-value=""	size=""  format="" />
+		<column name="UParentID"		type="string"   default-value=""	size=""  format="" />
+		<column name="UParentName"		type="string"   default-value=""	size=""  format="" />
+		<column name="ProductID"		type="string"   default-value=""	size=""  format="" />
+		<column name="ProductName"		type="string"   default-value=""	size=""  format="" />
+		<column name="ISIN"			type="string"   default-value=""	size=""  format="" />
+		<column name="CUSIP"			type="string"   default-value=""	size=""  format="" />
+		<column name="locn_cntry_id_c"		type="string"   default-value=""	size=""  format="" />
+		<column name="is_locn_id_c"		type="string"   default-value=""	size=""  format="" />
+		<column name="Price"			type="string"   default-value=""	size=""  format="" />
+		<column name="Quantity"			type="string"   default-value=""	size=""  format="" />
+		<column name="ExchangCode"		type="string"   default-value=""	size=""  format="" />
+		<column name="t_ac_id_c_2_c"		type="string"   default-value=""	size=""  format="" />
+		<column name="SlsrID"			type="string"   default-value=""	size=""  format="" />
+		<column name="Desk"			type="string"   default-value=""	size=""  format="" />
+		<column name="BuySell"			type="string"   default-value=""	size=""  format="" />
+		<column name="PrinAgcy"			type="string"   default-value=""	size=""  format="" />
+		<column name="SoftDollar"		type="string"   default-value=""	size=""  format="" />
+		<column name="Book"			type="string"   default-value=""	size=""  format="" />
+		<column name="TraderCode"		type="string"   default-value=""	size=""  format="" />
+		<column name="Principal"		type="string"   default-value=""	size=""  format="" />
+		<column name="NetProceeds"		type="string"   default-value=""	size=""  format="" />
+		<column name="Currency"			type="string"   default-value=""	size=""  format="" />
+		<column name="CommissionUSD"		type="string"   default-value=""	size=""  format="" />
+		<column name="CreditUSD"		type="string"   default-value=""	size=""  format="" />
+		<column name="CancCor"			type="string"   default-value=""	size=""  format="" />
+		<column name="NativeCurrency"		type="string"   default-value=""	size=""  format="" />
+		<column name="GiveOut"			type="string"   default-value=""	size=""  format="" />
+		<column name="ProdType"			type="string"   default-value=""	size=""  format="" />
+		<column name="RepDiv"			type="string"   default-value=""	size=""  format="" />
+		<column name="SettlementDate"		type="string"   default-value=""	size=""  format="" />
+		<column name="PClass"			type="string"   default-value=""	size=""  format="" />
+		<column name="NetCommUSD"		type="string"   default-value=""	size=""  format="" />
+		<column name="GroupID"			type="string"   default-value=""	size=""  format="" />
+		<column name="ErrorID"			type="string"   default-value=""	size=""  format="" />
+		<column name="BusLine"			type="string"   default-value=""	size=""  format="" />
+		<column name="ignore1"			type="string"   default-value=""	size=""  format="" />
+		<column name="ignore2"			type="string"   default-value=""	size=""  format="" />
+    </column-set>	
+	<column-set name="fileDP">	
+		<column name="col1"			type="string"   default-value=""	size=""  format="" />
+		<column name="col2"			type="string"   default-value=""	size=""  format="" />
+		<column name="col3"			type="string"   default-value=""	size=""  format="" />
+		<column name="col4"			type="string"   default-value=""	size=""  format="" />
+		<column name="col5"			type="string"   default-value=""	size=""  format="" />
+    </column-set>	
+</column-def>

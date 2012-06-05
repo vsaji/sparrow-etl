@@ -1,0 +1,124 @@
+<column-def>
+    <column-set name="vision">
+		<column name="Trade_Date"		type="date"   default-value=""  size="50"  format="yyyy-MM-dd" />
+		<column name="Start_Date"		type="date"   default-value=""  size="20"  format="yyyy-MM-dd" />
+		<column name="End_Date"			type="date"	  default-value="1979-07-17"  size="30"  format="yyyy-MM-dd" />
+		<column name="TRADE_NUMBER"		type="string" default-value=""  size="50"  format="" />
+		<column name="Book_NTPA"		type="string" default-value=""  size=""  format="" />
+		<column name="Entity_NTPA"		type="string" default-value=""  size=""  format="" />
+		<column name="Trader_Code_NTPA" type="string" default-value=""  size=""  format="" />
+		<column name="Bond_ISIN"		type="string" default-value=""  size=""  format="" />
+		<column name="Bond_Mat_Date"	type="date"   default-value=""  size=""  format="yyyy-MM-dd" />
+		<column name="Bond_Currency"	type="string" default-value=""  size=""  format="" />
+		<column name="Purpose"			type="string" default-value=""  size=""  format="" />
+		<column name="Cpty_Code_NTPA"	type="string" default-value=""  size=""  format="" />
+		<column name="Nominal_Face"		type="double" default-value=""  size=""  format="" />
+		<column name="Collateral"		type="string" default-value=""  size=""  format="" />
+		<column name="Nominal_Cash"		type="double" default-value=""  size=""  format="" />
+		<column name="Price"			type="double" default-value=""  size=""  format="" />
+		<column name="Cash_Value"		type="double" default-value=""  size=""  format="" />
+		<column name="Broker_Amount"	type="float"  default-value="18.0556"  size=""  format="" />
+		<column name="Broker_Fee"		type="string" default-value=""  size=""  format="" />
+		<column name="Broker_Code_HUGO" type="string" default-value=""  size=""  format="" />
+		<column name="Repo_Year"		type="string" default-value=""  size=""  format="" />
+		<column name="Mod_Date"			type="date"   default-value=""  size=""  format="yyyy-MM-dd" />
+		<column name="Mod_Event"		type="string" default-value=""  size=""  format="" />
+		<column name="Mod_Reason"		type="string" default-value="No Reason"  size=""  format="" />
+		<column name="Mod_Trader"		type="string" default-value=""  size=""  format="" />
+		<column name="Nature"			type="string" default-value=""  size=""  format="" />
+		<column name="Tran_Name"		type="string" default-value=""  size=""  format="" />
+    </column-set>
+  <column-set name="jmsextractor">
+		<column name="Trade_Date"		type="date" default-value=""  size="50"  format="yyyy-MM-dd" />
+		<column name="Start_Date"		type="date" default-value=""  size="20"  format="yyyy-MM-dd" />
+		<column name="End_Date"			type="date" default-value="1979-07-17"  size="30"  format="yyyy-MM-dd" />
+		<column name="TRADE_NUMBER"		type="string" default-value=""  size="50"  format="" />
+		<column name="Book_NTPA"		type="string" default-value=""  size=""  format="" />
+		<column name="Entity_NTPA"		type="string" default-value=""  size=""  format="" />
+		<column name="Trader_Code_NTPA" type="string" default-value=""  size=""  format="" />
+		<column name="Bond_ISIN"		type="string" default-value=""  size=""  format="" />
+		<column name="Bond_Mat_Date"	type="date" default-value=""  size=""  format="yyyy-MM-dd" />
+		<column name="Bond_Currency"	type="string" default-value=""  size=""  format="" />
+		<column name="Purpose"			type="string" default-value=""  size=""  format="" />
+		<column name="Cpty_Code_NTPA"	type="string" default-value=""  size=""  format="" />
+		<column name="Nominal_Face"		type="double" default-value=""  size=""  format="" />
+		<column name="Collateral"		type="string" default-value=""  size=""  format="" />
+		<column name="Nominal_Cash"		type="double" default-value=""  size=""  format="" />
+		<column name="Price"			type="double" default-value=""  size=""  format="" />
+		<column name="Cash_Value"		type="double" default-value=""  size=""  format="" />
+		<column name="Broker_Amount"	type="float" default-value="18.0556"  size=""  format="" />
+		<column name="Broker_Fee"		type="string" default-value=""  size=""  format="" />
+		<column name="Broker_Code_HUGO" type="string" default-value=""  size=""  format="" />
+		<column name="Repo_Year"		type="string" default-value=""  size=""  format="" />
+		<column name="Mod_Date"			type="date" default-value=""  size=""  format="yyyy-MM-dd" />
+		<column name="Mod_Event"		type="string" default-value=""  size=""  format="" />
+		<column name="Mod_Reason"		type="string" default-value="No Reason"  size=""  format="" />
+		<column name="Mod_Trader"		type="string" default-value=""  size=""  format="" />
+		<column name="Nature"			type="string" default-value=""  size=""  format="" />
+		<column name="Tran_Name"		type="string" default-value=""  size=""  format="" />
+    </column-set>
+	<column-set name="entity">
+		<column name="ENT_ID"                       type="long"	size="5" />              
+		<column name="ENT_CODE"                     type="string" size="50"/>          
+		<column name="ENT_DESC"                     type="string" size="100"/>
+		<column name="ENT_ADDRESS"                  type="string" size="100"/>                  
+		<column name="ENT_BIC_CODE"                 type="string" size="11"/>                    
+		<column name="ENT_REG_NO"                   type="string" size="10"/>                    
+		<column name="ENT_COUNTRY_ID"               type="long"	size="10"/>                    
+		<column name="ENT_REMARKS"                  type="string"/>                    
+		<column name="ENT_CREATE_BY"                type="string"/>            
+		<column name="ENT_CREATE_DATETIME"          type="date" format="dd/MM/yyyy" />                    
+		<column name="ENT_MOD_BY"                   type="string"/>                    
+		<column name="ENT_MOD_DATETIME"             type="date" format="dd/MM/yyyy" />         
+		<column name="ENT_VERIFY_BY"                type="string"/>                    
+		<column name="ENT_VERIFY_DATETIME"          type="date" format="dd/MM/yyyy" />              
+		<column name="ENT_VERIFY_REMARKS"           type="string"/>                         
+		<column name="ENT_STATUS"                   type="string"/>                    
+		<column name="LAST_UPDATED_DATETIME"        type="date"	format="dd/MM/yyyy" />                           
+		<column name="ENT_POSTING_CODE"             type="string"/>              
+		<column name="ENT_CASH_POSTING_COST_CENTRE" type="string"/>                    
+		<column name="ENT_BR_REQD"                  type="string"/>                    
+		<column name="ENT_BC_REQD"                  type="string"/>                    
+		<column name="ENT_IC_REQD"                  type="string"/>            
+		<column name="ENT_AFFLIATE_ID"              type="string"/>                    
+		<column name="ENT_CASH_POST_COST_CENTRE_IC" type="string"/>           
+		<column name="ENT_ALT_ENTITY_CODE"          type="string"/>                    
+		<column name="ENT_CASH_POST_COST_CENTRE_BR" type="string"/>                    
+		<column name="ENT_POSTING_CODE_BR"          type="string"/>                    
+		<column name="ENT_POSTING_CODE_IC"          type="string"/>                    
+		<column name="ENT_NOSTRO_POSTING_ID_IC"     type="string"/>                    
+		<column name="ENT_TREASURY_ACCOUNT_CODE_IC" type="string"/>                    
+		<column name="ENT_REGION_CODE"              type="string"/>                    
+		<column name="ENT_POSTINGS_ENABLED"         type="string"/>                    
+    </column-set>
+	<column-set name="extractor">
+		<column name="INV_ID"			  type="long"	size="5" />              
+		<column name="INV_BRO_REF_NO"		  type="string" size="50"/>          
+		<column name="INV_BROKER_ID"		  type="long" size="100"/>
+		<column name="INV_ENTITY_ID"		  type="long" size="100"/>                  
+		<column name="INV_INVOICE_DATE"		  type="date" format="yyyy-MM-dd HH:mm:ss.0"/>                    
+		<column name="INV_TRADE_MONTH"		  type="string" size="10"/>                    
+		<column name="INV_CCY_ID"		  type="long"	size="10"/>                    
+		<column name="INV_AMOUNT"		  type="double"/>                    
+		<column name="INV_SETTLE_DATE"		  type="date" format="yyyy-MM-dd HH:mm:ss.0"/>            
+		<column name="INV_OWNER"		  type="string"/>                    
+		<column name="INV_INVOICE_TYPE"		type="string"/>                    
+		<column name="INV_BUSINESS_STATUS"	  type="string"/>         
+		<column name="INV_RCVD_DATE"		  type="date" format="yyyy-MM-dd HH:mm:ss.0"/>                    
+		<column name="INV_ORG_INV_ID"		  type="long" />              
+		<column name="INV_USER_FILE_NAME"	  type="string"/>                         
+		<column name="INV_SYSTEM_FILE_NAME"	  type="string"/>                    
+		<column name="INV_FILE_TYPE"		  type="string" />                           
+		<column name="INV_CREATE_BY"		  type="string"/>              
+		<column name="INV_CREATE_DATETIME"	 type="date" format="yyyy-MM-dd HH:mm:ss.0"/>                    
+		<column name="INV_CREATE_REMARKS"	  type="string"/>                    
+		<column name="INV_MOD_BY"		  type="string"/>                    
+		<column name="INV_MOD_DATETIME"		type="date" format="yyyy-MM-dd HH:mm:ss.0"/>            
+		<column name="INV_VERIFY_BY"		  type="string"/>                    
+		<column name="INV_VERIFY_DATETIME"	 type="date" format="yyyy-MM-dd HH:mm:ss.0"/>           
+		<column name="INV_VERIFY_REMARKS"	  type="string"/>                    
+    </column-set>
+
+
+
+</column-def>
