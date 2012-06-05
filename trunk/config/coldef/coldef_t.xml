@@ -1,0 +1,6 @@
+<column-def>
+    <column-set name="driver">
+		<column name="ISIN_SECNO"			type="string"   default-value=""	size=""  format="" />
+		<column name="CSFBJL_SECNO"			type="int"   default-value=""	size=""  format="" />
+    </column-set>		
+</column-def>
