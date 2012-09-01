@@ -1,9 +1,0 @@
-<column-def>
-   <column-set name="driver">
-		<column name="MSGID"	type="string"   xpath="@MSGID"/>
-		<column name="MSG"	type="string" xpath="@MSG"/>
-		<column name="RETRY_COUNT"	type="string" xpath="@RETRY_COUNT"/>
-		<column name="INTRL_MSGID"	type="string" xpath="@INTRL_MSGID"/>
-		<column name="TOPIC"	type="string" xpath="@PROP:Topic"/>
-	 </column-set>
-</column-def>
