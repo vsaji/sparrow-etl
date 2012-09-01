@@ -22,10 +22,6 @@ import sparrow.etl.core.util.ConfigKeyConstants;
 import sparrow.etl.core.util.Sortable;
 import sparrow.etl.core.util.SparrowUtil;
 
-import com.csfb.sg.Utils.Database.ISecureConn;
-import com.csfb.sg.Utils.Database.NormalConn;
-import com.csfb.sg.Utils.Database.SecureConnFactory;
-
 /**
  *
  * <p>Title: Class DefaultDataSourceInitializer </p>
@@ -115,8 +111,6 @@ public class DefaultDBSourceInitializer
       }
       else {
         BasicDataSource bds = new BasicDataSource();
-
-        checkSecureConnection();
 
         bds.setDriverClassName(param.getParameterValue(
             ConfigKeyConstants.PARAM_DRIVER_CLASS_NAME));
@@ -241,79 +235,7 @@ public class DefaultDBSourceInitializer
     }
   }
 
-  /**
-   *
-   * @return ISecureConn
-   */
-  private void checkSecureConnection() {
-
-    logger.debug("checkSecureConnection called");
-
-    if (!this.param.isParameterExist(ConfigKeyConstants.PARAM_PASSWORD)) {
-
-      NormalConn con = new NormalConn();
-      con.userId = getStream();
-
-      String dbType = getDBType();
-
-      ISecureConn sConn = SecureConnFactory.getSecureConn(dbType, con);
-
-      if (sConn.genPasswd()) {
-        userName = sConn.getUserId();
-        password = sConn.getUserPasswd();
-      }
-
-      if (password == null || password.trim().equals("")) {
-        throw new InitializationException(
-            "Secure Connection returned NULL/empty password:[DB:" + dbType +
-            "/Stream:" + con.userId + "/sConn.getUserPasswd:" + password +
-            "]");
-      }
-
-      logger.debug("PASSWORD : [XXXXX" +
-                   password.substring(Math.min(5, userName.length()),
-                                      userName.length()) +
-                   "]");
-    }
-    else {
-      userName = this.param.getParameterValue(ConfigKeyConstants.
-                                              PARAM_USER_NAME);
-      password = this.param.getParameterValue(ConfigKeyConstants.PARAM_PASSWORD);
-    }
-  }
-
-  /**
-   *
-   * @return String
-   */
-  private String getDBType() {
-    String driver = this.param.getParameterValue(ConfigKeyConstants.
-                                                 PARAM_DRIVER_CLASS_NAME);
-    if (driver.indexOf("oracle") != -1) {
-      return DB_ORACLE;
-    }
-    else if (driver.indexOf("sybase") != -1) {
-      return DB_SYBASE;
-    }
-    else {
-      return null;
-    }
-  }
-
-  /**
-   *
-   * @return String
-   */
-  private String getStream() {
-    String userName = SparrowUtil.performTernary(this.param,
-                                               ConfigKeyConstants.
-                                               PARAM_SECURE_STREAM,
-                                               this.
-                                               param.getParameterValue(
-        ConfigKeyConstants.PARAM_USER_NAME));
-    return userName;
-  }
-
+   
   /**
    * getResource
    *
