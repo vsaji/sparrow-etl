@@ -6,6 +6,8 @@ public interface ConfigKeyConstants {
 	 *
 	 */
 	public static final String PARAM_SPARROW_CYCLE_COUNT = "sparrow.cycle.count";
+	
+	public static final String PARAM_SHOW_PID = "show.pid";
 
 	public static final String PARAM_SPARROW_IGNORE_EE = "sparrow.ignore.extractor.exception";
 	
