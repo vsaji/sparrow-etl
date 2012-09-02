@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project default="cleanup" basedir=".">
+        <description>
+                Build file for SPARROW Clearcase release
+        </description>
+
+        <property environment="env"/>
+		<property  name="src_home" value="../src" />
+        <property  name="build_home" value="bin" />
+        <property  name="class_home" value="${build_home}/classes" />
+		<property name="sparrow.lib.dir" value="../lib"/>
+		<property name="sparrow.label" value="2.3.4"/>
+		
+
+		  <fileset id="sparrow.lib.jar" dir="${sparrow.lib.dir}">
+			  <include name="*.jar"/>
+		  </fileset>
+
+		  <path id="sparrow.lib">
+			 <fileset refid="sparrow.lib.jar" />
+		  </path>
+
+        <target name="init">
+                <tstamp/>
+                <echo message="Building the SPARROW [${sparrow.label}]..."/>
+        	 	<delete dir="${class_home}"/>
+        	    <delete dir="${build_home}"/>
+        		<delete file="../release/sparrow.${sparrow.label}.jar"/>
+        </target>
+        <target name="create_build_dir" depends="init">
+                <echo message="Create build directory..."/>
+                <mkdir dir="${build_home}"/>
+                <mkdir dir="${class_home}"/>
+        </target>
+		<target name="compile" depends="create_build_dir">
+		<echo message="Compiling java source files..."/>
+			<javac srcdir="${src_home}" destdir="${class_home}" debug="on">
+				 <classpath refid="sparrow.lib"/>
+				 <exclude name="sparrow/etl/core/test/**"/>
+				 <exclude name="sparrow/etl/gui/**"/>
+				 <exclude name="sparrow/etl/core/services/Test**"/>
+				 <include name="**/*.java"/>
+			</javac>
+			<copy todir="${class_home}">
+				<fileset dir="${src_home}" includes="**/*.properties" /> 
+				<fileset dir="${src_home}" includes="**/*.xml" /> 
+				<fileset dir="${src_home}" includes="**/*.ser" />
+				<fileset dir="${src_home}" includes="**/*.exe" /> 
+			</copy>
+			<replace file="${class_home}/sparrow/etl/core/config/impl.properties" token="$sparrow.label$" value="${sparrow.label}"/>
+			<replace file="${class_home}/sparrow/etl/core/config/impl.properties" token="$item.numbers$" value="34"/>
+		</target>
+        
+		<target name="copy_class_to_java_dir" depends="compile">
+                <echo message="Making jar [sparrow.${sparrow.label}.jar]"/>
+                <jar destfile="../release/sparrow.${sparrow.label}.jar" basedir="${class_home}"/>
+        </target>
+
+        <target name="cleanup" depends="copy_class_to_java_dir">
+                <echo message="Cleanup before leave..."/>
+                <delete dir="${class_home}"/>
+                <delete dir="${build_home}"/>
+        </target>
+</project>
