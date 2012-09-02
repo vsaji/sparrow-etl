@@ -31,6 +31,7 @@ import sparrow.etl.core.monitor.EndCycleMonitor;
 import sparrow.etl.core.monitor.RequestAndResponseQMonitor;
 import sparrow.etl.core.monitor.Watcher;
 import sparrow.etl.core.util.AsyncRequestProcessorHelper;
+import sparrow.etl.core.util.ConfigKeyConstants;
 import sparrow.etl.core.util.Constants;
 import sparrow.etl.core.util.ContextParam;
 import sparrow.etl.core.util.PIDUtil;
@@ -127,8 +128,11 @@ public final class ApplicationInitializer {
 				this.config = this.loadConfiguration(configFile);
 				this.context = new SparrowApplicationContextImpl(this.config);
 
-				this.context.setAttribute(ContextVariables.SPARROW_PID, PIDUtil.getPID());
-				this.printUsefulInfo();
+				if(SparrowUtil.performTernary(config.getModule(),ConfigKeyConstants.PARAM_SHOW_PID,false)){
+					this.context.setAttribute(ContextVariables.SPARROW_PID, PIDUtil.getPID());	
+				}
+				
+				this.printStartupInfo();
 				
 				TransactionEnabledConnectionProvider.setContext(context);
 
@@ -160,18 +164,21 @@ public final class ApplicationInitializer {
 
 	}
 
-	/**
- * 
- */
-	private void printUsefulInfo() {
+	/*
+	 * Prints Startup information to console 
+	 */
+	private void printStartupInfo() {
+		
+		String pidInfo = "";
+
+		if(SparrowUtil.performTernary(config.getModule(),ConfigKeyConstants.PARAM_SHOW_PID,false)){
+			pidInfo = "PID ["+this.context.getAttribute(ContextVariables.SPARROW_PID)+"]";	
+		}
+		
 		logger.info("Application [" + context.getAppName()
 				+ "] initializing on SPARROW Build ["
 				+ SparrowUtil.getImplConfig("sparrow").get("build.version")
-				+ "]:PID[" + PIDUtil.getPID() + "]");
-		logger.info("Build ["
-				+ SparrowUtil.getImplConfig("sparrow").get("build.version")
-				+ "] contains following fixes ["
-				+ SparrowUtil.getImplConfig("sparrow").get("item.numbers") + "]");
+				+ "]"+ pidInfo);
 	}
 
 	/**
