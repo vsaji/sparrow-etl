@@ -80,7 +80,7 @@ public class DefaultDBSourceInitializer
       SparrowUtil.validateParam(new String[] {ConfigKeyConstants.
                               PARAM_DRIVER_CLASS_NAME,
                               ConfigKeyConstants.PARAM_CONNECTION_URL,
-                              ConfigKeyConstants.PARAM_USER_NAME}
+                              ConfigKeyConstants.PARAM_USER_NAME,ConfigKeyConstants.PARAM_PASSWORD}
                               ,
                               "DefaultDBSourceInitializer[" + resourceName +
                               "]",
@@ -114,8 +114,8 @@ public class DefaultDBSourceInitializer
 
         bds.setDriverClassName(param.getParameterValue(
             ConfigKeyConstants.PARAM_DRIVER_CLASS_NAME));
-        bds.setUsername(userName);
-        bds.setPassword(password);
+        bds.setUsername(param.getParameterValue(ConfigKeyConstants.PARAM_USER_NAME));
+        bds.setPassword(param.getParameterValue(ConfigKeyConstants.PARAM_PASSWORD));
         bds.setUrl(param.getParameterValue(
             ConfigKeyConstants.PARAM_CONNECTION_URL));
         bds.setInitialSize(getMaxActive());
