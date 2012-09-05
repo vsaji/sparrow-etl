@@ -3,15 +3,10 @@
 		<column name="Trade_Date"		type="date"   default-value=""  size="50"  format="yyyy-MM-dd" />
 		<column name="Start_Date"		type="date"   default-value=""  size="20"  format="yyyy-MM-dd" />
 		<column name="End_Date"			type="date"	  default-value="1979-07-17"  size="30"  format="yyyy-MM-dd" />
-		<column name="TRADE_NUMBER"		type="string" default-value=""  size="50"  format="" />
-		<column name="Book_NTPA"		type="string" default-value=""  size=""  format="" />
-		<column name="Entity_NTPA"		type="string" default-value=""  size=""  format="" />
-		<column name="Trader_Code_NTPA" type="string" default-value=""  size=""  format="" />
 		<column name="Bond_ISIN"		type="string" default-value=""  size=""  format="" />
 		<column name="Bond_Mat_Date"	type="date"   default-value=""  size=""  format="yyyy-MM-dd" />
 		<column name="Bond_Currency"	type="string" default-value=""  size=""  format="" />
 		<column name="Purpose"			type="string" default-value=""  size=""  format="" />
-		<column name="Cpty_Code_NTPA"	type="string" default-value=""  size=""  format="" />
 		<column name="Nominal_Face"		type="double" default-value=""  size=""  format="" />
 		<column name="Collateral"		type="string" default-value=""  size=""  format="" />
 		<column name="Nominal_Cash"		type="double" default-value=""  size=""  format="" />
@@ -19,8 +14,6 @@
 		<column name="Cash_Value"		type="double" default-value=""  size=""  format="" />
 		<column name="Broker_Amount"	type="float"  default-value="18.0556"  size=""  format="" />
 		<column name="Broker_Fee"		type="string" default-value=""  size=""  format="" />
-		<column name="Broker_Code_HUGO" type="string" default-value=""  size=""  format="" />
-		<column name="Repo_Year"		type="string" default-value=""  size=""  format="" />
 		<column name="Mod_Date"			type="date"   default-value=""  size=""  format="yyyy-MM-dd" />
 		<column name="Mod_Event"		type="string" default-value=""  size=""  format="" />
 		<column name="Mod_Reason"		type="string" default-value="No Reason"  size=""  format="" />
@@ -32,15 +25,9 @@
 		<column name="Trade_Date"		type="date" default-value=""  size="50"  format="yyyy-MM-dd" />
 		<column name="Start_Date"		type="date" default-value=""  size="20"  format="yyyy-MM-dd" />
 		<column name="End_Date"			type="date" default-value="1979-07-17"  size="30"  format="yyyy-MM-dd" />
-		<column name="TRADE_NUMBER"		type="string" default-value=""  size="50"  format="" />
-		<column name="Book_NTPA"		type="string" default-value=""  size=""  format="" />
-		<column name="Entity_NTPA"		type="string" default-value=""  size=""  format="" />
-		<column name="Trader_Code_NTPA" type="string" default-value=""  size=""  format="" />
-		<column name="Bond_ISIN"		type="string" default-value=""  size=""  format="" />
 		<column name="Bond_Mat_Date"	type="date" default-value=""  size=""  format="yyyy-MM-dd" />
 		<column name="Bond_Currency"	type="string" default-value=""  size=""  format="" />
 		<column name="Purpose"			type="string" default-value=""  size=""  format="" />
-		<column name="Cpty_Code_NTPA"	type="string" default-value=""  size=""  format="" />
 		<column name="Nominal_Face"		type="double" default-value=""  size=""  format="" />
 		<column name="Collateral"		type="string" default-value=""  size=""  format="" />
 		<column name="Nominal_Cash"		type="double" default-value=""  size=""  format="" />
@@ -48,7 +35,6 @@
 		<column name="Cash_Value"		type="double" default-value=""  size=""  format="" />
 		<column name="Broker_Amount"	type="float" default-value="18.0556"  size=""  format="" />
 		<column name="Broker_Fee"		type="string" default-value=""  size=""  format="" />
-		<column name="Broker_Code_HUGO" type="string" default-value=""  size=""  format="" />
 		<column name="Repo_Year"		type="string" default-value=""  size=""  format="" />
 		<column name="Mod_Date"			type="date" default-value=""  size=""  format="yyyy-MM-dd" />
 		<column name="Mod_Event"		type="string" default-value=""  size=""  format="" />
