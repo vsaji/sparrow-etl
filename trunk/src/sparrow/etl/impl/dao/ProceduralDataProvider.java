@@ -5,10 +5,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
 
 import sparrow.etl.core.config.SparrowDataProviderConfig;
 import sparrow.etl.core.context.SparrowContext;
@@ -176,13 +172,8 @@ public class ProceduralDataProvider
         context.getTransactionManager().commit();
       }
     }
-    catch (SystemException ex) {
-    }
-    catch (HeuristicRollbackException ex) {
-    }
-    catch (HeuristicMixedException ex) {
-    }
-    catch (RollbackException ex) {
+    catch (Exception ex) {
+    	ex.printStackTrace();
     }
     finally {
       isInTrans = false;
@@ -199,7 +190,7 @@ public class ProceduralDataProvider
         context.getTransactionManager().rollback();
       }
     }
-    catch (SystemException ex) {
+    catch (Exception ex) {
       ex.printStackTrace();
     }
     finally {
