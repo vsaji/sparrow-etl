@@ -53,13 +53,13 @@ public class SybaseDBDialect
   }
 
   /**
-   * resolveSpearColumnType
+   * resolveSparrowColumnType
    *
    * @param colType int
    * @param colScale int
    * @return int
    */
-  public int resolveSpearColumnType(int colType, String colTypeName,
+  public int resolveSparrowColumnType(int colType, String colTypeName,
                                     int colScale) {
     switch (colType) {
       case Types.NUMERIC:
@@ -72,7 +72,7 @@ public class SybaseDBDialect
           return ColumnTypes.NUMBER;
         }
       default:
-        return super.resolveSpearColumnType(colType, colTypeName, colScale);
+        return super.resolveSparrowColumnType(colType, colTypeName, colScale);
     }
   }
 

@@ -205,7 +205,7 @@ public final class DBUtil {
    * @param colScale int
    * @return int
    */
-  public static final int resolveSpearColumnType(int colType, int colScale) {
+  public static final int resolveSparrowColumnType(int colType, int colScale) {
     switch (colType) {
       case Types.VARCHAR:
       case Types.CHAR:

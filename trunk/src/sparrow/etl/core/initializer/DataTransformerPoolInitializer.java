@@ -50,7 +50,7 @@ public class DataTransformerPoolInitializer
       SparrowApplicationContextImpl contxt = (SparrowApplicationContextImpl)
           context;
       DataTransformerFactory manager = new DataTransformerPoolManager(new
-          SpearDataTransformerConfigImpl(contxt.getConfiguration().
+          SparrowDataTransformerConfigImpl(contxt.getConfiguration().
                                          getDataTransformer(), context));
       DataTransformer dt = manager.getDataTransformer();
       dt.staticInitialize();
@@ -72,13 +72,13 @@ public class DataTransformerPoolInitializer
    * @author Saji Venugopalan
    * @version 1.0
    */
-  class SpearDataTransformerConfigImpl
+  class SparrowDataTransformerConfigImpl
       implements SparrowDataTransformerConfig {
 
     private final DataTransformerConfig item;
     private final SparrowContext context;
 
-    SpearDataTransformerConfigImpl(DataTransformerConfig item,
+    SparrowDataTransformerConfigImpl(DataTransformerConfig item,
                                    SparrowContext context) {
       this.item = item;
       this.context = context;

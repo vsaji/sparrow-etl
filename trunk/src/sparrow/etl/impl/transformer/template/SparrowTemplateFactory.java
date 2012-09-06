@@ -32,7 +32,7 @@ public class SparrowTemplateFactory {
   /**
    *
    * @param name String
-   * @return SpearTemplate
+   * @return SparrowTemplate
    */
   public static final TemplateProcessor createTemplateProcessor(String name){
 

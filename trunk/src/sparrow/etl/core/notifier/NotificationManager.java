@@ -60,7 +60,7 @@ public class NotificationManager {
 
   /**
    *
-   * @param config SpearNotifiersConfig
+   * @param config SparrowNotifiersConfig
    */
   public void addNotifier(Notifier notifier) {
     OBJECT_REPOSITORY.put(notifier.getConfig().getName(), notifier);
@@ -68,7 +68,7 @@ public class NotificationManager {
 
   /**
    *
-   * @param config SpearNotifiersConfig
+   * @param config SparrowNotifiersConfig
    */
   public void addEvent(EventEvaluator ee) {
     em.addEventEvaluator(ee);

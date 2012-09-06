@@ -61,7 +61,7 @@ public class ShutdownTimeListener
 
       if (procShutFrmt > 3) {
         throw new SparrowRuntimeException(" Format [" + procShutFrmt +
-                                        "] does not support by Spear. Please specify EEE:HH:mm or HH:mm");
+                                        "] does not support by SPARROW.etl. Please specify EEE:HH:mm or HH:mm");
       }
 
       lastRunDay = SparrowUtil.formatDate(new Date(), "EEE");

@@ -26,7 +26,7 @@ import sparrow.etl.core.util.SparrowUtil;
 public class InitialContextInitializer
     implements GenericResourceInitializer {
 
-  private SpearInitialContext context = null;
+  private SparrowInitialContext context = null;
   private final ConfigParam param;
   private final String resourceName;
 
@@ -77,7 +77,7 @@ public class InitialContextInitializer
    */
   public void initializeResource() {
     try {
-      context = new SpearInitialContext(param);
+      context = new SparrowInitialContext(param);
     }
     catch (Exception ex) {
       throw new InitializationException("RESOURCE_INIT_EXP",
@@ -134,10 +134,10 @@ public class InitialContextInitializer
    * @author not attributable
    * @version 1.0
    */
-  private class SpearInitialContext
+  private class SparrowInitialContext
       extends InitialContext {
 
-    SpearInitialContext(ConfigParam param) throws NamingException {
+    SparrowInitialContext(ConfigParam param) throws NamingException {
       super();
       super.init(SparrowUtil.getInitialContextProperties(param));
     }

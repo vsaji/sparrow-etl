@@ -244,7 +244,7 @@ public class RequestFinalizerInitializer
     DataWriter dw = (DataWriter) SparrowUtil.createObject(item.getType().
         getWriterClass(),
         SparrowDataWriterConfig.class,
-        new SpearDataWriterConfigImpl(item));
+        new SparrowDataWriterConfigImpl(item));
     boolean trans = SparrowUtil.performTernary(item,
                                              ConfigKeyConstants.
                                              PARAM_EXEMPT_TRANS, false);
@@ -407,12 +407,12 @@ public class RequestFinalizerInitializer
    * @author Saji Venugopalan
    * @version 1.0
    */
-  class SpearDataWriterConfigImpl
+  class SparrowDataWriterConfigImpl
       implements SparrowDataWriterConfig {
 
     private WriterConfig item = null;
 
-    SpearDataWriterConfigImpl(WriterConfig item) {
+    SparrowDataWriterConfigImpl(WriterConfig item) {
       this.item = item;
     }
 

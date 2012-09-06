@@ -38,7 +38,7 @@ public class SPParamInfo {
       String temp[] = totParam[i].split("[:]");
       pos[i] = Integer.parseInt(temp[0]);
       type[i] = DBUtil.getColumnType(Types.class, temp[1]);
-      sprType[i] = DBUtil.resolveSpearColumnType(type[i], 0);
+      sprType[i] = DBUtil.resolveSparrowColumnType(type[i], 0);
       colName[i] = temp[2];
     }
 

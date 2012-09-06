@@ -18,7 +18,7 @@ public class SparrowPropertyUtils {
   static SparrowPropertyUtils getInstance() {
     if (instance == null) {
       instance = new SparrowPropertyUtils();
-      instance.loadSpearProperties();
+      instance.loadSparrowProperties();
     }
     return instance;
   }
@@ -26,7 +26,7 @@ public class SparrowPropertyUtils {
   /**
    *
    */
-  private void loadSpearProperties() {
+  private void loadSparrowProperties() {
     props = new Properties();
     try {
       props.load(SparrowPropertyUtils.class.getClassLoader().getResourceAsStream(

@@ -15,7 +15,7 @@ import sparrow.etl.core.exception.ParserException;
  * @version 1.0
  */
 public class GenericMessageListener
-    extends AbstractSpearMessageListener {
+    extends AbstractSparrowMessageListener {
 
   protected static final String RESERVE_TOCKEN = "@";
 

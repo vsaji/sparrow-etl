@@ -33,7 +33,7 @@ public abstract class DataExtractorFactory {
     extractor = (DataExtractor) SparrowUtil.createObject(
         extractorConfig.getType().getExtractorClass(),
         new Class[] {SparrowDataExtractorConfig.class}
-        , new Object[] {new SpearDataExtractorConfigImpl(context,extractorConfig)});
+        , new Object[] {new SparrowDataExtractorConfigImpl(context,extractorConfig)});
     return extractor;
   }
 
@@ -48,13 +48,13 @@ public abstract class DataExtractorFactory {
    * @author not attributable
    * @version 1.0
    */
-private static class SpearDataExtractorConfigImpl implements SparrowDataExtractorConfig{
+private static class SparrowDataExtractorConfigImpl implements SparrowDataExtractorConfig{
 
   private final SparrowApplicationContext   context;
   private final DataExtractorConfig   config;
 
 
-  SpearDataExtractorConfigImpl(SparrowApplicationContext
+  SparrowDataExtractorConfigImpl(SparrowApplicationContext
       context,DataExtractorConfig config){
     this.context=context;
     this.config = config;

@@ -205,7 +205,7 @@ public class DataLookupManager {
       String lookupName = (String) iter.next();
       LookUpConfig lookup = (LookUpConfig) lookupsInMap.get(lookupName);
       lookupObjects.put(lookupName, SparrowUtil.createObject(lookup.getClassName(),
-          SparrowDataLookupConfig.class, new SpearDataLookupConfigImpl(lookup,
+          SparrowDataLookupConfig.class, new SparrowDataLookupConfigImpl(lookup,
           contxt)));
     }
 
@@ -220,13 +220,13 @@ public class DataLookupManager {
    * @author Saji Venugopalan
    * @version 1.0
    */
-  private class SpearDataLookupConfigImpl
+  private class SparrowDataLookupConfigImpl
       implements SparrowDataLookupConfig {
 
     private final LookUpConfig item;
     private final SparrowContext context;
 
-    SpearDataLookupConfigImpl(LookUpConfig item, SparrowContext context) {
+    SparrowDataLookupConfigImpl(LookUpConfig item, SparrowContext context) {
       this.item = item;
       this.context = context;
     }

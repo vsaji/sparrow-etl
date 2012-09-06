@@ -132,7 +132,7 @@ public class DBDialect {
    * @param colScale int
    * @return int
    */
-  public int resolveSpearColumnType(int colType, String colTypeName,
+  public int resolveSparrowColumnType(int colType, String colTypeName,
                                     int colScale) {
     switch (colType) {
       case Types.VARCHAR:

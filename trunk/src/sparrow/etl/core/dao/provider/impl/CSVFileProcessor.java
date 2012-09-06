@@ -81,7 +81,7 @@ public class CSVFileProcessor
   public ColumnHeader loadHeader() {
 
     SparrowResultSetMetaData resultSetMetaData = SparrowResultMetaDataFactory.
-        getSpearResultSetMetaData(info.
+        getSparrowResultSetMetaData(info.
                                   getColumnDefinitionValue(), info.getName());
     dtr = resultSetMetaData.getAllDataTypeResolvers();
     this.headerColLen = dtr.length;

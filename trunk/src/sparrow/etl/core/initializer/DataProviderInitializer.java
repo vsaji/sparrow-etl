@@ -185,7 +185,7 @@ public class DataProviderInitializer
 
     DataProviderElementExtn obj = (DataProviderElementExtn) SparrowUtil.
         createObject(baseDBClass);
-    SparrowDataProviderConfig impl = new SpearDataProviderConfigImpl(item,context);
+    SparrowDataProviderConfig impl = new SparrowDataProviderConfigImpl(item,context);
     DataProvider provider = (DataProvider) SparrowUtil.createObject(providerClass,
         SparrowDataProviderConfig.class, impl);
     if (cache) {
@@ -214,13 +214,13 @@ public class DataProviderInitializer
      * @author Saji Venugopalan
      * @version 1.0
      */
-    private class SpearDataProviderConfigImpl
+    private class SparrowDataProviderConfigImpl
         implements SparrowDataProviderConfig {
 
       private final DataProviderConfig item;
       private final SparrowContext context;
 
-      SpearDataProviderConfigImpl(DataProviderConfig item,SparrowContext context) {
+      SparrowDataProviderConfigImpl(DataProviderConfig item,SparrowContext context) {
         this.item = item;
         this.context = context;
       }

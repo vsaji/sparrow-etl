@@ -102,11 +102,11 @@ public class DataTransformerPoolManager
   }
 
   /**
-   * getSpearDataTransformerConfig
+   * getSparrowDataTransformerConfig
    *
    * @return SparrowDataTransformerConfig
    */
-  public SparrowDataTransformerConfig getSpearDataTransformerConfig() {
+  public SparrowDataTransformerConfig getSparrowDataTransformerConfig() {
     return config;
   }
 

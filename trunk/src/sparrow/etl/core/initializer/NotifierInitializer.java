@@ -67,7 +67,7 @@ public class NotifierInitializer
 
         key = (String) it.next();
 
-        SparrowNotifierConfig snConfig = new SpearNotifierConfigImpl( (
+        SparrowNotifierConfig snConfig = new SparrowNotifierConfigImpl( (
             NotifierConfig) config.getNotifiers().get(key),
             context);
 
@@ -84,7 +84,7 @@ public class NotifierInitializer
 
         while (it.hasNext()) {
           key = (String) it.next();
-          SparrowEventConfig seConfig = new SpearEventConfigImpl( (
+          SparrowEventConfig seConfig = new SparrowEventConfigImpl( (
               EventConfig) config.getEvents().get(key),
               context);
 
@@ -132,7 +132,7 @@ public class NotifierInitializer
    * @author not attributable
    * @version 1.0
    */
-  private class SpearNotifierConfigImpl
+  private class SparrowNotifierConfigImpl
       implements SparrowNotifierConfig {
 
     NotifierConfig config;
@@ -143,7 +143,7 @@ public class NotifierInitializer
      * @param config NotifierConfig
      * @param context SparrowContext
      */
-    SpearNotifierConfigImpl(NotifierConfig config, SparrowContext context) {
+    SparrowNotifierConfigImpl(NotifierConfig config, SparrowContext context) {
       this.config = config;
       this.context = context;
     }
@@ -204,7 +204,7 @@ public class NotifierInitializer
    * @author not attributable
    * @version 1.0
    */
-  private class SpearEventConfigImpl
+  private class SparrowEventConfigImpl
       implements SparrowEventConfig {
 
     EventConfig config;
@@ -215,7 +215,7 @@ public class NotifierInitializer
      * @param config NotifierConfig
      * @param context SparrowContext
      */
-    SpearEventConfigImpl(EventConfig config, SparrowContext context) {
+    SparrowEventConfigImpl(EventConfig config, SparrowContext context) {
       this.config = config;
       this.context = context;
     }
