@@ -63,7 +63,7 @@ public class CycleDependencyInitializer {
     String currentClass = null;
 
     try {
-      initializeSpearSpecificDependables(context, cycleObervable);
+      initializeSparrowSpecificDependables(context, cycleObervable);
 
       for (Iterator iter = dependents.iterator(); iter.hasNext(); ) {
         AsserterConfig item = (AsserterConfig) iter.next();
@@ -100,7 +100,7 @@ public class CycleDependencyInitializer {
   /**
    *
    */
-  private void initializeSpearSpecificDependables(SparrowApplicationContext
+  private void initializeSparrowSpecificDependables(SparrowApplicationContext
                                                   context,
                                                   CycleMonitor cycleObervable) {
     Map impls = SparrowUtil.getImplConfig("cycledependency");
@@ -113,7 +113,7 @@ public class CycleDependencyInitializer {
           , new Object[] {null, context});
       cycleObervable.addObserver(preDependant);
       CycleDependencyChecker.registerPreDependant(preDependant);
-      logger.debug("Spear specific cycle pre-dependency [" + currentClass +
+      logger.debug("Sparrow specific cycle pre-dependency [" + currentClass +
                    "] has been registered");
     }
   }

@@ -17,7 +17,7 @@ public class SparrowDataSourceObjectFactory
     Reference ref = (Reference) obj;
     if (ref.getClassName().equals(SparrowDataSource.class.getName())) {
       String nm = getProperty(ref, "name");
-      return SparrowDataSource.getSpearDataSource(nm);
+      return SparrowDataSource.getSparrowDataSource(nm);
     }
     else {
       return null;

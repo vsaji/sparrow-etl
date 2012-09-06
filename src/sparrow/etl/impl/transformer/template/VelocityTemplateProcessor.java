@@ -60,7 +60,7 @@ public class VelocityTemplateProcessor
    * @return String
    */
   public String render(Map values) throws EvaluatorException {
-    VelocityContext ctxt = new SpearVelocityContext(values);
+    VelocityContext ctxt = new SparrowVelocityContext(values);
     StringWriter sw = new StringWriter();
     try {
       ri.render(ctxt, sw, "sparrow", nodeTree);
@@ -81,20 +81,20 @@ public class VelocityTemplateProcessor
    * @author not attributable
    * @version 1.0
    */
-  private static class SpearVelocityContext
+  private static class SparrowVelocityContext
       extends VelocityContext {
 
     /**
      *
      */
-    public SpearVelocityContext() {
+    public SparrowVelocityContext() {
     }
 
     /**
      *
      * @param context Map
      */
-    public SpearVelocityContext(Map context) {
+    public SparrowVelocityContext(Map context) {
       super(context);
     }
 

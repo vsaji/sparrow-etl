@@ -42,7 +42,7 @@ public class SparrowMessageListernerPoolManager
    */
   public SparrowMessageListernerPoolManager(SparrowDataExtractorConfig config) {
     this.config = config;
-    this.pool = new StackObjectPool(new SpearListernerPoolFactory(this),
+    this.pool = new StackObjectPool(new SparrowListernerPoolFactory(this),
                                     100);
     msgType = SparrowUtil.performTernary(config.getInitParameter(),
                                        "message.type", Constants.STRING);
@@ -130,11 +130,11 @@ public class SparrowMessageListernerPoolManager
   }
 
   /**
-   * getSpearDataExtractorConfig
+   * getSparrowDataExtractorConfig
    *
    * @return SparrowDataExtractorConfig
    */
-  public SparrowDataExtractorConfig getSpearDataExtractorConfig() {
+  public SparrowDataExtractorConfig getSparrowDataExtractorConfig() {
     return config;
   }
 
@@ -147,7 +147,7 @@ public class SparrowMessageListernerPoolManager
    * @author Saji Venugopalan
    * @version 1.0
    */
-  private class SpearListernerPoolFactory
+  private class SparrowListernerPoolFactory
       extends BasePoolableObjectFactory {
 
     private IObjectPoolLifeCycle lc = null;
@@ -157,7 +157,7 @@ public class SparrowMessageListernerPoolManager
      *
      * @return Object
      */
-    public SpearListernerPoolFactory(IObjectPoolLifeCycle lc) {
+    public SparrowListernerPoolFactory(IObjectPoolLifeCycle lc) {
       this.lc = lc;
     }
 

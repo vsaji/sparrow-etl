@@ -52,7 +52,7 @@ public class SparrowRuntimeException
     setErrorCode(errorCode);
     setErrorDescription(errorDescription);
     this.throwable = this;
-	logger.error("Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+	logger.error("Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 			+ errorDescription + "]", this);
     checkExceptionAgainstFatal();
   }
@@ -62,7 +62,7 @@ public class SparrowRuntimeException
     setErrorCode(e.getClass().getName());
     setErrorDescription(e.getMessage());
     this.throwable = this;
-	logger.error("Root Exception["+e.getClass().getName()+"]-Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+	logger.error("Root Exception["+e.getClass().getName()+"]-Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 			+ errorDescription + "]", this.throwable);
     checkExceptionAgainstFatal();
   }
@@ -72,7 +72,7 @@ public class SparrowRuntimeException
     setErrorCode(message);
     setErrorDescription(e.getMessage());
     this.throwable = this;
-	logger.error("Root Exception["+e.getClass().getName()+"]-Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+	logger.error("Root Exception["+e.getClass().getName()+"]-Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 			+ errorDescription + "] Message["+message+"]", this.throwable);
     checkExceptionAgainstFatal();
   }
@@ -82,7 +82,7 @@ public class SparrowRuntimeException
     setErrorCode(this.getClass().getName());
     setErrorDescription(message);
     this.throwable = this;
-	logger.error("Spear Exception["+this.getClass().getName()+"] Message["+message+"]", this.throwable);
+	logger.error("Sparrow Exception["+this.getClass().getName()+"] Message["+message+"]", this.throwable);
     checkExceptionAgainstFatal();
   }
 

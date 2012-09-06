@@ -16,6 +16,6 @@ public interface DataTransformerFactory extends IObjectPoolLifeCycle{
 
   public abstract DataTransformer getDataTransformer();
 
-  public abstract SparrowDataTransformerConfig getSpearDataTransformerConfig();
+  public abstract SparrowDataTransformerConfig getSparrowDataTransformerConfig();
 
 }

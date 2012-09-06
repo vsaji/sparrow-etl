@@ -82,7 +82,7 @@ public abstract class SparrowException extends Exception {
 		setErrorCode(errorCode);
 		setErrorDescription(errorDescription);
 		this.throwable = this;
-		logger.error("Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+		logger.error("Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 				+ errorDescription + "]", this);
 		checkExceptionAgainstFatal();
 	}
@@ -96,7 +96,7 @@ public abstract class SparrowException extends Exception {
 		setErrorCode(errorCode);
 		setErrorDescription(errorDescription);
 		this.throwable = this;
-		logger.error("Root Exception["+e.getClass().getName()+"]-Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+		logger.error("Root Exception["+e.getClass().getName()+"]-Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 				+ errorDescription + "]", this);
 		checkExceptionAgainstFatal();
 	}
@@ -110,7 +110,7 @@ public abstract class SparrowException extends Exception {
 		setErrorCode(e.getClass().getName());
 		setErrorDescription(e.getMessage());
 		this.throwable = e;
-		logger.error("Root Exception["+e.getClass().getName()+"]-Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+		logger.error("Root Exception["+e.getClass().getName()+"]-Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 				+ errorDescription + "]", this.throwable);
 		checkExceptionAgainstFatal();
 	}
@@ -124,7 +124,7 @@ public abstract class SparrowException extends Exception {
 		this.throwable = (ExceptionHandler.isRegistered(e)) ? e : this;
 		setErrorCode(e.getClass().getName());
 		setErrorDescription(e.getMessage());
-		logger.error("Root Exception["+e.getClass().getName()+"]-Spear Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
+		logger.error("Root Exception["+e.getClass().getName()+"]-Sparrow Exception["+this.getClass().getName()+"] occured [" + errorCode + "-"
 				+ errorDescription + "] Message["+message+"]", this.throwable);
 		checkExceptionAgainstFatal();
 	}
@@ -138,7 +138,7 @@ public abstract class SparrowException extends Exception {
 		setErrorCode(this.getClass().getName());
 		setErrorDescription(message);
 		this.throwable = this;
-		logger.error("Spear Exception["+this.getClass().getName()+"] Message["+message+"]", this.throwable);		
+		logger.error("Sparrow Exception["+this.getClass().getName()+"] Message["+message+"]", this.throwable);		
 		checkExceptionAgainstFatal();
 	}
 
@@ -194,7 +194,7 @@ public abstract class SparrowException extends Exception {
 	 * @param description
 	 */
 	public static final void throwException(final String code,final String description){
-		new SparrowException.SpearExceptionExtn(code,description);
+		new SparrowException.SparrowExceptionExtn(code,description);
 	}
 
 	/**
@@ -202,13 +202,13 @@ public abstract class SparrowException extends Exception {
 	 * @author Saji
 	 *
 	 */
-	private static class SpearExceptionExtn extends SparrowException{
+	private static class SparrowExceptionExtn extends SparrowException{
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public SpearExceptionExtn(final String code,final String description){
+		public SparrowExceptionExtn(final String code,final String description){
 			super(code,description);
 		}
 	}

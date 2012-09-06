@@ -324,7 +324,7 @@ public class JMSDataExtractor
                                                  PARAM_COLUMN_DEF,
                                                  DEFAULT_COL_DEF);
     SparrowResultSetMetaData srsmd = SparrowResultMetaDataFactory
-        .getSpearResultSetMetaData(colDefFile, name);
+        .getSparrowResultSetMetaData(colDefFile, name);
     dtr = srsmd.getAllDataTypeResolvers();
     colLen = dtr.length;
     reqColLen = srsmd.getDataTypeResolvers().length;

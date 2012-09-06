@@ -15,7 +15,7 @@ import sparrow.etl.core.util.IObjectPoolLifeCycle;
  * @author Saji Venugopalan
  * @version 1.0
  */
-public abstract class AbstractSpearMessageListener
+public abstract class AbstractSparrowMessageListener
     implements SparrowMessageListener {
 
   private final SparrowDataExtractorConfig config;
@@ -26,7 +26,7 @@ public abstract class AbstractSpearMessageListener
    *
    * @param config SparrowDataExtractorConfig
    */
-  public AbstractSpearMessageListener(SparrowDataExtractorConfig config) {
+  public AbstractSparrowMessageListener(SparrowDataExtractorConfig config) {
     this.config = config;
   }
 

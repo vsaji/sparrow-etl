@@ -29,7 +29,7 @@ public class SparrowResultMetaDataFactory {
    * @param fileName String
    * @return DataTypeResolver[]
    */
-  public static final SparrowResultSetMetaData getSpearResultSetMetaData(String
+  public static final SparrowResultSetMetaData getSparrowResultSetMetaData(String
       fileName, String colset) {
 
     /**    String key = fileName + colset;
@@ -41,7 +41,7 @@ public class SparrowResultMetaDataFactory {
     SparrowResultSetMetaData srsmd;
     try {
       InputStream in = SparrowUtil.getFileAsStream(fileName);
-      srsmd = getSpearResultSetMetaData(in, colset);
+      srsmd = getSparrowResultSetMetaData(in, colset);
       in.close();
     }
     catch (Exception ex) {
@@ -58,7 +58,7 @@ public class SparrowResultMetaDataFactory {
    * @param file File
    * @return DataTypeResolver[]
    */
-  private static final SparrowResultSetMetaData getSpearResultSetMetaData(
+  private static final SparrowResultSetMetaData getSparrowResultSetMetaData(
       InputStream in, String colset) {
     try {
       SAXParser sp = SAXParserFactory.newInstance().newSAXParser();

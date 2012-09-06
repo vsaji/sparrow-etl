@@ -83,7 +83,7 @@ public class ColumnHeader {
         columnHeaderName.add(i, transformer.resolveColumnName(metaData, j));
         columnSize[i] = getPrecision(metaData, (j));
         columnScale[i] = metaData.getScale(j);
-        columnType[i] = transformer.resolveSpearColumnType(metaData.
+        columnType[i] = transformer.resolveSparrowColumnType(metaData.
             getColumnType(j), metaData.getColumnTypeName(j), columnScale[i]);
       }
     }
@@ -221,7 +221,7 @@ public class ColumnHeader {
    * @param scale int
    * @return int
    */
-  private int getSpearColumnType(int type, int scale) {
+  private int getSparrowColumnType(int type, int scale) {
     switch (type) {
       case Types.VARCHAR:
       case Types.CHAR:

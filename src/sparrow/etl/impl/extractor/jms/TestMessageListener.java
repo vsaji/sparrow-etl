@@ -17,7 +17,7 @@ import sparrow.etl.core.config.SparrowDataExtractorConfig;
  * @author not attributable
  * @version 1.0
  */
-public class TestMessageListener extends AbstractSpearMessageListener {
+public class TestMessageListener extends AbstractSparrowMessageListener {
 
   /**
    *

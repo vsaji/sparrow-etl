@@ -126,7 +126,7 @@ class ResourceInitializer
     String InitializerClass = item.getType().getResourceInitializerClass();
     initializer = (GenericResourceInitializer) SparrowUtil.createObject(
         InitializerClass, SparrowResourceConfig.class,
-        new SpearResourceConfigImpl(item));
+        new SparrowResourceConfigImpl(item));
     return initializer;
   }
 
@@ -173,12 +173,12 @@ class ResourceInitializer
    * @author Saji Venugopalan
    * @version 1.0
    */
-  public class SpearResourceConfigImpl
+  public class SparrowResourceConfigImpl
       implements SparrowResourceConfig {
 
     private ResourceConfig item = null;
 
-    SpearResourceConfigImpl(ResourceConfig item) {
+    SparrowResourceConfigImpl(ResourceConfig item) {
       this.item = item;
     }
 

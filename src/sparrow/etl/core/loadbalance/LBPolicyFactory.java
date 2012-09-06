@@ -35,7 +35,7 @@ public class LBPolicyFactory {
     RequestAssignerPolicy assigner = null;
     LoadBalancerConfig config = ((SparrowApplicationContext) context).getConfiguration().getModule().getLoadBalancer();
     assigner = (RequestAssignerPolicy) SparrowUtil.createObject( config.getClassName(), new Class[] {Map.class,
-        SparrowConfig.class}, new Object[] {fifos, new SpearLoadBalancerConfigImpl(config,context)});
+        SparrowConfig.class}, new Object[] {fifos, new SparrowLoadBalancerConfigImpl(config,context)});
 
     return assigner;
   }
@@ -79,7 +79,7 @@ public class LBPolicyFactory {
    * @author not attributable
    * @version 1.0
    */
-  private static class SpearLoadBalancerConfigImpl implements SparrowConfig{
+  private static class SparrowLoadBalancerConfigImpl implements SparrowConfig{
 
 
     private final LoadBalancerConfig config;
@@ -89,7 +89,7 @@ public class LBPolicyFactory {
      *
      * @return SparrowContext
      */
-    public SpearLoadBalancerConfigImpl(LoadBalancerConfig config,SparrowContext context){
+    public SparrowLoadBalancerConfigImpl(LoadBalancerConfig config,SparrowContext context){
       this.config = config;
       this.context = context;
     }

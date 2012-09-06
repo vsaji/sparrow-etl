@@ -41,7 +41,7 @@ public class SparrowDataSource
   /**
    * helper method for the object factory associated with this class
    */
-  protected static final SparrowDataSource getSpearDataSource(String name) {
+  protected static final SparrowDataSource getSparrowDataSource(String name) {
     return (SparrowDataSource) dataSources.get(name);
   }
 
