@@ -9,6 +9,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static com.saji.lift.exercises.Direction.DOWN;
+import static com.saji.lift.exercises.Direction.UP;
+import static com.saji.lift.exercises.Direction.STALL;
+
 /**
  * @author sv11741
  * 
@@ -72,32 +76,57 @@ public class LiftController {
 	public synchronized void sendRequest(String currFloorAndDestination) {
 		
 		String[] flrDest = currFloorAndDestination.split("[,]");
-		int currFloor = Integer.parseInt(flrDest[0]);
-		int destFloor = Integer.parseInt(flrDest[1]);
+		int currFlr = Integer.parseInt(flrDest[0]);
+		int destFlr = Integer.parseInt(flrDest[1]);
 	
 		Direction direction = null;
 		Lift lift = null;
+		boolean notificationReq = true;
 		
-		if( Direction.DOWN.getQ().isEmpty() && Direction.UP.getQ().isEmpty()){
-			lift = getNearestAvailableLift(currFloor);
+		if( DOWN.getQ().isEmpty() && UP.getQ().isEmpty()){
+			lift = getNearestAvailableLift(currFlr,null);
 		}else{
-			lift = null; 
-			while((lift=getStalledLift())==null){
+
+			//check the direction request currFloor,destFloor
+			//check the nearest lift in the same direction
+			//check if the nearest lift is > currFloor - if the direction is down
+			//check if the nearest lift is < currFloor - if the direction is up
+			//reset the destLevel of the lift to destFloor if it is greater than 
+			
+			direction = (currFlr > destFlr ) ? DOWN : UP;
+			lift = getNearestAvailableLift(currFlr,direction);
+			if(direction==DOWN ){
+				if(lift.getCurrLevel() > currFlr){
+					if(destFlr > lift.getDestLevel() ){
+						lift.setDestLevel(destFlr);
+						notificationReq=false;
+					}
+				}
+			}else{
+				if(lift.getCurrLevel() < currFlr){
+					if(destFlr > lift.getDestLevel() ){
+						lift.setDestLevel(destFlr);
+						notificationReq=false;
+					}
+				}
 			}
 		}
 		
-		if(lift.getCurrLevel()==currFloor){
-			direction = (currFloor > destFloor ) ? Direction.DOWN : Direction.UP;
+		if(lift.getCurrLevel()==currFlr){
+			direction = (currFlr > destFlr ) ? DOWN : UP;
 			lift.setReqLevel(-1);	
 		}else{
-			direction = (lift.getCurrLevel() > currFloor ) ? Direction.DOWN : Direction.UP;
-			lift.setReqLevel(currFloor);
+			direction = (lift.getCurrLevel() > currFlr ) ? DOWN : UP;
+			lift.setReqLevel(currFlr);
 		}
 		
-		lift.setDestLevel(destFloor);
+		lift.setDestLevel(destFlr);
 		lift.setDirection(direction);
-		direction.getQ().put(currFloor, destFloor);
-		liftNotifierQ[lift.getLiftNum()].offer(currFloor);
+		direction.getQ().put(currFlr, destFlr);
+		
+		if(notificationReq){
+			liftNotifierQ[lift.getLiftNum()].offer(currFlr);
+		}
 	}
 
 	
@@ -108,38 +137,41 @@ public class LiftController {
 	public synchronized Action adviceAction(Lift lift,Direction currDirection) {
 		int nextLevel =  lift.getCurrLevel();
 		
-		if(currDirection.getQ().keySet().contains(nextLevel) ){
-			
-			if(currDirection.getQ().get(nextLevel)==null && currDirection.getQ().size() > 0){
-				currDirection.getQ().remove(nextLevel);
-				return (currDirection.getQ().size()==0) ? Action.STALL : Action.STOP_N_MOVE;
-			}
-			else if(nextLevel >  lift.getDestLevel() ){
-				lift.setDestLevel(currDirection.getQ().get(nextLevel));
-				currDirection.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
-				currDirection.getQ().remove(nextLevel);
-				return Action.STOP_N_MOVE;
+		synchronized(currDirection.getQ()){
+		
+			if(currDirection.getQ().keySet().contains(nextLevel) ){
 				
-			}else if(nextLevel <  lift.getDestLevel()){ //change direction 
-				lift.setDestLevel(currDirection.getQ().get(nextLevel));
-				currDirection.getQ().remove(nextLevel);
-				
-				if(currDirection==Direction.DOWN){
-					Direction reverse = currDirection.reverse();
-					reverse.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
-					lift.setDirection(reverse);
-					return Action.MOVE_REVERSE;				
-				}else{
-					currDirection.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
-					return Action.STOP_N_MOVE;				
+				if(currDirection.getQ().get(nextLevel)==null && currDirection.getQ().size() > 0){
+					currDirection.getQ().remove(nextLevel);
+					return (currDirection.getQ().size()==0) ? Action.STALL : Action.STOP_N_MOVE;
 				}
-				
+				else if(nextLevel >  lift.getDestLevel() ){
+					lift.setDestLevel(currDirection.getQ().get(nextLevel));
+					currDirection.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
+					currDirection.getQ().remove(nextLevel);
+					return Action.STOP_N_MOVE;
+					
+				}else if(nextLevel <  lift.getDestLevel()){ //change direction 
+					lift.setDestLevel(currDirection.getQ().get(nextLevel));
+					currDirection.getQ().remove(nextLevel);
+					
+					if(currDirection==DOWN){
+						Direction reverse = currDirection.reverse();
+						reverse.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
+						lift.setDirection(reverse);
+						return Action.MOVE_REVERSE;				
+					}else{
+						currDirection.getQ().put(lift.getDestLevel(), null); // to stop the dest location;
+						return Action.STOP_N_MOVE;				
+					}
+					
+				}
+				return Action.STOP_N_MOVE;
+			}else if(!currDirection.getQ().keySet().contains(nextLevel) && currDirection.getQ().size() > 0){
+				return Action.MOVE_FORWARD;
+			}else{
+				return Action.STALL;
 			}
-			return Action.STOP_N_MOVE;
-		}else if(!currDirection.getQ().keySet().contains(nextLevel) && currDirection.getQ().size() > 0){
-			return Action.MOVE_FORWARD;
-		}else{
-			return Action.STALL;
 		}
 	}
 	
@@ -149,12 +181,17 @@ public class LiftController {
 	 * @param level
 	 * @return
 	 */
-	private Lift getNearestAvailableLift(int level) {
+	private Lift getNearestAvailableLift(int level, Direction d) {
 
 		Lift nearestLift = getTheFirstAvailableLift();
 		int currLevel = nearestLift.getNearestLevel();
 
 		for (Lift lift : lifts) {
+			
+			if(d!=null && lift.getDirection()!=d){
+				continue;
+			}
+			
 			int nearestLevel = lift.getNearestLevel();
 			// System.out.println(level+"-"+lift.getCurrLevel()+"("+Math.abs(level-lift.getCurrLevel())+") < ("+Math.abs(level-currLevel)+") "+level+"-"+currLevel);
 				if (Math.abs(level - nearestLevel) < Math.abs(level	- currLevel)) {
@@ -187,7 +224,7 @@ public class LiftController {
 	 */
 	private Lift getStalledLift(){
 		for (Lift lift : lifts) {
-			if(lift.getDirection()==Direction.STALL){
+			if(lift.getDirection()==STALL){
 				return lift;
 			}
 		}
